@@ -2,7 +2,7 @@
 #include<math.h>
 void main()
 {
-int a[6],i,j,k,n,ecount=0,ocount=0,pcount=0,prcount=0,sum=0,count=0,rem,arm=0,rev=0,ch,temp,t,acount=0,fact=1;
+int a[10],i,j,k,n,ecount=0,ocount=0,pcount=0,prcount=0,sum=0,count=0,rem,arm=0,rev=0,ch,temp,t,acount=0,fact=1;
 printf("enter n value:");
 scanf("%d",&n);
 printf("enter array values:");
@@ -113,8 +113,12 @@ case 5:printf("printing the no.of palindromes in a given array\n");
 case 6:printf("printing the factorial of each number in a given array");
         for(i=0;i<n;i++)
         {
-            fact=fact*a[i];
-            printf("factorial of a[%d]=%d\n",i,fact);
+         for(j=1;j<=a[i];j++)
+         {
+            fact=fact*j;
+         }
+         printf("factorial of a[%d]=%d\n",i,fact);
+         fact=1;
         }
         break;
 }
