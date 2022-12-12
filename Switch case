@@ -1,0 +1,121 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+int a[6],i,j,k,n,ecount=0,ocount=0,pcount=0,prcount=0,sum=0,count=0,rem,arm=0,rev=0,ch,temp,t,acount=0,fact=1;
+printf("enter n value:");
+scanf("%d",&n);
+printf("enter array values:");
+for(i=0;i<n;i++)
+{
+printf("enter a[%d]=",i);
+scanf("%d",&a[i]);
+}
+printf("1.number of evens and odds\n 2.number of primes\n 3.number of perfect numbers\n 4.number arm strong numbers\n 5.no.of palindrom numbers\n 6.factorial of each number\n enter the option from(1-6):\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1: printf("printing no.of evens and odds in a given array\n");
+        for(i=0;i<n;i++)
+        {
+         if(a[i]%2==0)
+        {
+         ecount++;
+        }
+        else
+        {
+         ocount++;
+        }
+        }
+        printf("no.of evens=%d\n",ecount);
+        printf("no.of odds=%d\n",ocount);
+        break;
+case 2: printf("printing no.of primes in a given array\n");
+        for(i=0;i<n;i++)
+        {
+        for(j=1;j<=a[i];j++)
+        {
+        if(a[i]%j==0)
+        {
+        pcount++;
+        }
+        }
+        if(pcount==2)
+        {
+        prcount++;
+        }
+        pcount=0;
+        }
+        printf("no.of primes=%d",prcount);
+        break;
+case 3:printf("printing no.of perfect numbers in a given array\n");
+       for(i=0;i<n;i++)
+       {
+       for(k=1;k<a[i];k++)
+       {
+        if(a[i]%k==0)
+        {
+         sum=sum+k;
+        }
+        }
+        if(sum==a[i])
+        {
+            count++;
+        }
+        sum=0;
+        }
+        printf("no.of perfect numbers=%d",count);
+        break;
+case 4:printf("printing no.of armstrong numbers in a given array\n");
+        for(i=0;i<n;i++)
+        {
+            temp=a[i];
+            t=a[i];
+        while(temp>0)
+        {
+            rem=temp%10;
+            temp=temp/10;
+            count++;
+        }
+        while(a[i]>0)
+        {
+            rem=a[i]%10;
+            arm=arm+pow(rem,count);
+            a[i]=a[i]/10;
+        }
+        if(t==arm)
+        {
+            acount++;
+        }
+        count=0;
+        arm=0;
+        }
+        printf("no.of armstrong numbers=%d",acount);
+        break;
+case 5:printf("printing the no.of palindromes in a given array\n");
+        for(i=0;i<n;i++)
+        {
+            temp=a[i];
+        while(a[i]>0)
+        {
+            rem=a[i]%10;
+            rev=(rev*10)+rem;
+            a[i]=a[i]/10;
+        }
+        if(rev==temp)
+        {
+            acount++;
+        }
+        rev=0;
+        }
+        printf("no.of palindroms=%d",acount);
+        break;
+case 6:printf("printing the factorial of each number in a given array");
+        for(i=0;i<n;i++)
+        {
+            fact=fact*a[i];
+            printf("factorial of a[%d]=%d\n",i,fact);
+        }
+        break;
+}
+}
